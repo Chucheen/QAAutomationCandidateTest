@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="span6 offset3">
+        <% form_type ||= :edit %>
+        <h1 style="text-align: center; text-decoration: underline"><%= t("scaffold.#{form_type.to_s}_wname", name:'Order') %></h1>
+        <BR>
+        <%= form_for(@order, html:{class:"form-scaffold"}) do |f| %>
+            <% if @order.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= t("scaffold.error_explanation",errors: pluralize(@order.errors.count, "error"), name: "order") %> </h2>
+
+                    <ul>
+                        <% @order.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+                            
+                          <%= f.label :order_no, class:'scaffold ' %>
+                          <%= f.text_field :order_no, class:'scaffold' %>
+                
+                            
+                          <%= f.label :Customer_id, class:'scaffold ' %>
+                          <%= f.text_field :Customer_id, class:'scaffold' %>
+                
+                            
+                          <%= f.label :total, class:'scaffold ' %>
+                          <%= f.text_field :total, class:'scaffold' %>
+                
+                            
+                          <%= f.label :date, class:'scaffold ' %>
+                          <%= f.date_select :date, class:'scaffold' %>
+                
+                        <div style="text-align: center; margin-top: 20px">
+                <%= f.submit 'Submit', class:'btn btn-large btn-primary' %>
+                <%= link_to 'Back', orders_path, class: 'scaffold btn btn-large btn-primary'  %>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+= form_tag(finalize_cart_path(order_id: order_id), method: 'post', class: 'mtl') do |f|
+  =label_tag 'Credit Card Number'
+  =text_field_tag 'credit_card[number]', "", class: 'scaffold'
+
+  =label_tag 'Verification code'
+  =text_field_tag 'credit_card[vcode]', "", class: 'scaffold'
+
+  =submit_tag 'Submit', class: 'btn btn-large btn-primary'

@@ -1,0 +1,20 @@
+<div class="container" style="text-align: center">
+  <div class="row">
+      <div class="div-scaffold span6 offset3">
+
+
+        <p id="notice"><%%= notice %></p>
+
+        <%# attributes.reject(&:password_digest?).each do |attribute| -%>
+        <% attributes.each do |attribute| -%>
+            <p>
+              <strong><%= attribute.human_name %>:</strong>
+              <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+            </p>
+
+        <% end -%>
+      </div>
+  </div>
+  <%%= link_to t('scaffold.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class:"scaffold btn btn-large btn-primary" %>
+  <%%= link_to t('scaffold.back'), <%= index_helper %>_path, class:"scaffold btn btn-large btn-primary" %>
+</div>

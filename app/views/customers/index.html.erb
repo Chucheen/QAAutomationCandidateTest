@@ -1,0 +1,54 @@
+<div class="container scaffold-cont">
+    <h1><%= t('scaffold.listing_index', name:'Customers')%></h1>
+    <% if @customers.any? %>
+        <table class="scaffold-tbl">
+            <head>
+                <tr class="scaffold header">
+                                                                <th class="scaffold">Firstname</th>
+                                            <th class="scaffold">Lastname</th>
+                                            <th class="scaffold">Email</th>
+                                            <th class="scaffold">Password</th>
+                                        <th colspan="3"><%= t('scaffold.actions')%></th>
+                </tr>
+            </head>
+            <% width= "#{(940 / 4)}px"  %>
+            <tbody>
+                <% counter = 0 %>
+                <% @customers.each do |customer| %>
+                    <tr class="<%= counter % 2 == 1 ? "scaffold uneven" : "scaffold odd" %>">
+                                                                            <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= customer.firstname %></td>
+                                                    <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= customer.lastname %></td>
+                                                    <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= customer.email %></td>
+                                                    <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= customer.password %></td>
+                                                <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>">
+                            <%= link_to customer do %>
+                                <i class="icon-info-sign"></i>&nbsp;<%= t('scaffold.show') %>
+                            <% end %>
+                        </td>
+                        <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>">
+                            <%= link_to edit_customer_path(customer) do %>
+                                <i class="icon-edit"></i>&nbsp;<%= t('scaffold.edit') %>
+                            <% end %>
+                        </td>
+                        <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>">
+                            <%= link_to customer, method: :delete, data: { confirm: t('scaffold.confirmation') } do %>
+                                <i class="icon-remove-sign"></i>&nbsp;<%= t('scaffold.destroy') %>
+                            <% end %>
+                        </td>
+                    </tr>
+                    <% counter = counter + 1 %>
+                <% end %>
+            </tbody>
+        </table>
+
+        <br>
+    <% else %>
+        <div class="row">
+            <div class="div-scaffold span6 offset3" style="float: none: padding: 15lpx">
+                <%= t('scaffold.empty_table', name: 'Customer').html_safe %>
+            </div>
+        </div>
+    <% end %>
+
+    <%= link_to t('scaffold.new_wname', name: 'Customer'), new_customer_path, class: 'scaffold btn btn-large btn-primary' %>
+</div>

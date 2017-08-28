@@ -1,0 +1,12 @@
+-provide(:title, t('titles.home_page'))
+
+%h1{style:"text-align:center"}
+  Homie Rocks!
+%BR
+-unless signed_in?
+  %h2{style:"text-align:center"}
+    ='Login to start!'
+  %BR
+  .row
+    .span6.offset3{style:'text-align:left'}
+      =render 'sessions/login'

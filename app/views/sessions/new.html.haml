@@ -1,0 +1,7 @@
+-provide(:title, t('titles.sessions.new'))
+%h1{style:"text-align:center"}
+  =yield :title
+%BR
+.row
+  .span6.offset3
+    =render 'login'

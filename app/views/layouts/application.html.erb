@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title><%= getFullTitle(yield(:title)) %></title>
+      <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+      <%= render 'layouts/shim' %>
+    </head>
+    <body>
+      <%= render 'layouts/header' %>
+      <div class="container">
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+        <%= yield %>
+      </div>
+      <script type="text/javascript">
+          $(function(){
+              $('.dropdown').click(function(){
+                  if(!($(this).hasClass('open'))){
+                      $(this).find('.dropdown-toggle').css({'color':'black', 'text-shadow':'none'});
+                  }
+                  else{
+                      $(this).find('.dropdown-toggle').css({'color':'white', 'text-shadow':'none'});
+                  }
+              });
+          });
+
+      </script>
+
+    </body>
+</html>

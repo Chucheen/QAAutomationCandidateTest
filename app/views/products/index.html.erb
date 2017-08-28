@@ -1,0 +1,66 @@
+<div class="container scaffold-cont">
+  <h1><%= t('scaffold.listing_index', name:'Products')%></h1>
+  <% if @products.any? %>
+      <table class="scaffold-tbl">
+        <head>
+          <tr class="scaffold header">
+            <th class="scaffold">Description</th>
+            <th class="scaffold">Name</th>
+            <th class="scaffold">Price</th>
+            <th class="scaffold">Status</th>
+            <th colspan="4"><%= t('scaffold.actions')%></th>
+          </tr>
+        </head>
+        <% width= "#{(940 / 4)}px"  %>
+        <tbody>
+        <% counter = 0 %>
+        <% @products.each do |product| %>
+            <tr class="<%= counter % 2 == 1 ? "scaffold uneven" : "scaffold odd" %>">
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= product.description %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= product.name %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= product.price %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= product.status ? 'Enabled' : 'Disabled' %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>">
+                <%= link_to edit_product_path(product) do %>
+                    <i class="icon-edit"></i>&nbsp;<%= t('scaffold.edit') %>
+                <% end %>
+              </td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>">
+                <%= link_to product, method: :delete, data: { confirm: t('scaffold.confirmation') } do %>
+                    <i class="icon-remove-sign"></i>&nbsp;<%= t('scaffold.destroy') %>
+                <% end %>
+              </td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>">
+                <%= link_to "#",{ class: 'add_to_cart', :"data-id" => product.id, :"data-name" => product.name, :"data-price" => product.price } do %>
+                    <i class="icon-shopping-cart"></i>&nbsp;Add To Cart(<%= product.in_current_order(current_user) %>)
+                <% end %>
+              </td>
+            </tr>
+            <% counter = counter + 1 %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+  <% else %>
+      <div class="row">
+        <div class="div-scaffold span6 offset3" style="float: none; padding: 15px">
+          <%= t('scaffold.empty_table', name: 'Product').html_safe %>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="popup" id="popup-product">
+  <div class="popup-back"></div>
+  <div class="popup-content">
+    <div class="popup-content-son">
+      <% @order_line = OrderLine.new %>
+      <%= render partial: '/order_lines/form' %>
+    </div>
+  </div>
+</div>
+
+<% content_for :head do %>
+    <%= javascript_include_tag "products" %>
+<% end %>

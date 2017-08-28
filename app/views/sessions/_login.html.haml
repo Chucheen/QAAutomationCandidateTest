@@ -1,0 +1,13 @@
+=form_tag sessions_path, autocomplete: :off, class:'rectangle-painted-rounded' do
+  =label_tag :email
+  =text_field_tag :email, "", {class: 'scaffold'}
+
+  =label_tag :password
+  =password_field_tag :password, "", {class: 'scaffold'}
+
+  =label_tag :remember_me, 'Remember me?&nbsp;'.html_safe, class:'pull-left'
+  =check_box_tag :remember_me
+  <BR>
+  <BR>
+  %div{style:"width:100%;text-align:right"}
+    =submit_tag 'Submit', method: :put, class: 'btn btn-large btn-primary'

@@ -1,0 +1,38 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  scaffold:
+      error_explanation: "%{errors} prohibited this %{name} from being saved:"
+      submit: 'Submit'
+      back: 'Back'
+      listing_index: "Listing %{name}"
+      actions: "Actions"
+      show: "Show"
+      edit: "Edit"
+      edit_wname: "Edit %{name}"
+      show_wname: "Show %{name}"
+      destroy: "Destroy"
+      new: 'New'
+      new_wname: 'New %{name}'
+      empty_table: "There isn't currently any %{name} yet<BR>You could create as many as you want with the button bellow"
+      confirmation: "Are you sure?"

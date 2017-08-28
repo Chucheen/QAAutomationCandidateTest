@@ -1,0 +1,67 @@
+
+.error-advice{
+  border: 2px solid #ff0000;
+  border-radius: 10px;
+  background-color: #ff0000;
+  color: #000000;
+  background-image: image-url('symbol_stop.png');
+  background-position: 10px center;
+  background-size: 250px 250px;
+  padding-left: 270px;
+  padding-right: 15px;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.error-advice h2{
+  padding-top: 40px;
+  text-align:center;
+  font-weight: bolder;
+  color: white;
+  font-size: 400%;
+}
+
+.error-advice p{
+  padding-top: 30px;
+  font-weight: bold;
+  line-height: 35px;
+  font-size: 200%;
+  text-align: center;
+}
+
+.warning-advice{
+  border: 2px solid inherit;
+  border-radius: 10px;
+  background:#2d2825;
+
+  /*
+    background: -webkit-linear-gradient(#ff0000, #CECECF); // For Safari 5.1 to 6.0
+    background: -o-linear-gradient(#ff0000, #CECECF); // For Opera 11.1 to 12.0
+    background: -moz-linear-gradient(#ff0000, #CECECF); // For Firefox 3.6 to 15
+    background: linear-gradient(#ff0000, #CECECF); // Standard syntax (must be last)
+  */
+
+  background-image: image-url('Error.png');
+  background-position: 10px center;
+  background-size: 250px 250px;
+  padding-left: 270px;
+  padding-right: 15px;
+  background-repeat: no-repeat;
+  color: #ff0000;
+}
+
+.warning-advice h2{
+  padding-top: 40px;
+  text-align:center;
+  font-weight: bolder;
+  font-size: 400%;
+  color: #ff0000;
+}
+
+.warning-advice p{
+  padding-top: 30px;
+  font-weight: bold;
+  line-height: 35px;
+  font-size: 200%;
+  text-align: center;
+}

@@ -1,0 +1,37 @@
+<div class="container" style="text-align: center">
+  <div class="row">
+      <div class="div-scaffold span6 offset3">
+
+
+        <p id="notice"><%= notice %></p>
+
+                            <p>
+              <strong>Order:</strong>
+              <%= @order_line.order_id %>
+            </p>
+
+                    <p>
+              <strong>Product:</strong>
+              <%= @order_line.product_id %>
+            </p>
+
+                    <p>
+              <strong>Qty:</strong>
+              <%= @order_line.qty %>
+            </p>
+
+                    <p>
+              <strong>Unit price:</strong>
+              <%= @order_line.unit_price %>
+            </p>
+
+                    <p>
+              <strong>Total price:</strong>
+              <%= @order_line.total_price %>
+            </p>
+
+              </div>
+  </div>
+  <%= link_to t('scaffold.edit'), edit_order_line_path(@order_line), class:"scaffold btn btn-large btn-primary" %>
+  <%= link_to t('scaffold.back'), order_lines_path, class:"scaffold btn btn-large btn-primary" %>
+</div>

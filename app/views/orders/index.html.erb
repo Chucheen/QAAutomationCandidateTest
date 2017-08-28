@@ -1,0 +1,37 @@
+<div class="container scaffold-cont">
+  <h1><%= t('scaffold.listing_index', name:'Orders')%></h1>
+  <% if @orders.any? %>
+      <table class="scaffold-tbl">
+        <head>
+          <tr class="scaffold header">
+            <th class="scaffold">Order no</th>
+            <th class="scaffold">Customer</th>
+            <th class="scaffold">Total</th>
+            <th class="scaffold">Date</th>
+          </tr>
+        </head>
+        <% width= "#{(940 / 4)}px"  %>
+        <tbody>
+        <% counter = 0 %>
+        <% @orders.each do |order| %>
+            <tr class="<%= counter % 2 == 1 ? "scaffold uneven" : "scaffold odd" %>">
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= order.order_no %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= "#{order.customer.firstname} #{order.customer.lastname}" %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= order.total %></td>
+              <td class="scaffold" style="width:<%=width%>;max-width:<%=width%>"><%= order.date %></td>
+            </tr>
+            <% counter = counter + 1 %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+  <% else %>
+      <div class="row">
+        <div class="div-scaffold span6 offset3" style="float: none: padding: 15lpx">
+          You haven't previous orders. What are you waiting for? :)
+        </div>
+      </div>
+  <% end %>
+
+</div>

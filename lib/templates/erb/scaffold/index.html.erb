@@ -1,0 +1,54 @@
+<div class="container scaffold-cont">
+    <h1><%%= t('scaffold.listing_index', name:'<%= human_name.pluralize %>')%></h1>
+    <%% if @<%= plural_table_name %>.any? %>
+        <table class="scaffold-tbl">
+            <head>
+                <tr class="scaffold header">
+                    <%# attributes.reject(&:password_digest?).each do |attribute| -%>
+                    <% attributes.each do |attribute| -%>
+                        <th class="scaffold"><%= attribute.human_name %></th>
+                    <% end -%>
+                    <th colspan="3"><%%= t('scaffold.actions')%></th>
+                </tr>
+            </head>
+            <%% width= "#{(940 / <%=attributes.length %>)}px"  %>
+            <tbody>
+                <%% counter = 0 %>
+                <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+                    <tr class="<%%= counter % 2 == 1 ? "scaffold uneven" : "scaffold odd" %>">
+                        <%# attributes.reject(&:password_digest?).each do |attribute| -%>
+                        <% attributes.each do |attribute| -%>
+                            <td class="scaffold" style="width:<%%=width%>;max-width:<%%=width%>"><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+                        <% end -%>
+                        <td class="scaffold" style="width:<%%=width%>;max-width:<%%=width%>">
+                            <%%= link_to <%= singular_table_name %> do %>
+                                <i class="icon-info-sign"></i>&nbsp;<%%= t('scaffold.show') %>
+                            <%% end %>
+                        </td>
+                        <td class="scaffold" style="width:<%%=width%>;max-width:<%%=width%>">
+                            <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>) do %>
+                                <i class="icon-edit"></i>&nbsp;<%%= t('scaffold.edit') %>
+                            <%% end %>
+                        </td>
+                        <td class="scaffold" style="width:<%%=width%>;max-width:<%%=width%>">
+                            <%%= link_to <%= singular_table_name %>, method: :delete, data: { confirm: t('scaffold.confirmation') } do %>
+                                <i class="icon-remove-sign"></i>&nbsp;<%%= t('scaffold.destroy') %>
+                            <%% end %>
+                        </td>
+                    </tr>
+                    <%% counter = counter + 1 %>
+                <%% end %>
+            </tbody>
+        </table>
+
+        <br>
+    <%% else %>
+        <div class="row">
+            <div class="div-scaffold span6 offset3" style="float: none: padding: 15lpx">
+                <%%= t('scaffold.empty_table', name: '<%= human_name.capitalize %>').html_safe %>
+            </div>
+        </div>
+    <%% end %>
+
+    <%%= link_to t('scaffold.new_wname', name: '<%= human_name %>'), new_<%= singular_table_name %>_path, class: 'scaffold btn btn-large btn-primary' %>
+</div>

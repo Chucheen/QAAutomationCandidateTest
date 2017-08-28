@@ -1,0 +1,32 @@
+<div class="container" style="text-align: center">
+  <div class="row">
+      <div class="div-scaffold span6 offset3">
+
+
+        <p id="notice"><%= notice %></p>
+
+                            <p>
+              <strong>Description:</strong>
+              <%= @product.description %>
+            </p>
+
+                    <p>
+              <strong>Name:</strong>
+              <%= @product.name %>
+            </p>
+
+                    <p>
+              <strong>Price:</strong>
+              <%= @product.price %>
+            </p>
+
+                    <p>
+              <strong>Status:</strong>
+              <%= @product.status %>
+            </p>
+
+              </div>
+  </div>
+  <%= link_to t('scaffold.edit'), edit_product_path(@product), class:"scaffold btn btn-large btn-primary" %>
+  <%= link_to t('scaffold.back'), products_path, class:"scaffold btn btn-large btn-primary" %>
+</div>

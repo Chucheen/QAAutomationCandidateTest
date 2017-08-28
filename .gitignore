@@ -1,0 +1,68 @@
+*.rdb
+dump.rdb
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/spec/tmp
+public/assets
+public/packs
+**.orig
+rerun.txt
+pickle-email-*.html
+.byebug_history
+.idea/
+npm-debug.log
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-version
+.ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+/vendor/assets/bower_components
+*.bowerrc
+bower.json
+
+# Ignore pow environment settings
+.powenv
+
+# Foreman bind configuration
+config/binder.yml
+
+# Fucking .DS_Store files
+.DS_Store
+.#*
+
+#React
+app/assets/webpack/
+react/
+
+#Sitemap
+public/sitemap.xml
+public/sitemap.xml.gz
+
+# rake files
+# lib/tasks/files/sr_pago/*.csv
+
+/node_modules
+node_modules/
+yarn-error.log
+
+/node_modules
+.pioenvs
+.piolibdeps
+.clang_complete
+.gcc-flags.json
+
