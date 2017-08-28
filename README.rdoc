@@ -1,28 +1,33 @@
-== README
+= Test Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+What we need you to do:
+- Create a fork from this project and start working from there
+- Implement as much as you can for unit testing for models and controllers
+- Implement integration testing using Capybara and Capistrano
+- Extra points if you use frameworks to automate database population for testing
+- Commit all your changes and create a pull request
+- Write a report of what bugs you found and how you fixed them by automating them
 
-Things you may want to cover:
+= Modules
+This webapp have the following modules:
 
-* Ruby version
+- User Login Form
+- User Registration Form.
+- View User Current Orders List. Ordered by date.
+- List Products.
+- Add a product to a shopping cart items.
+- Place an order.
+- Connect to the payment gateway dummy service.
+- Receive a notification from payment gateway dummy service, if the payment was done successfully.
+- Add New Products.
+- Edit Existing products
 
-* System dependencies
+= Deploy Instructions
+In order to deploy the project (this assumes you already have ruby installed):
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- install mysql and set user root and password devtest
+- create database co_ecommerce
+- run the scrip `co_ecommerce20150822.sql` to restore it to the previously created database
+- go to co_ecommerce directory and run bundle install to install all the gems
+- run "rails s" to launch the rails server
+- have fun!
