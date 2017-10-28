@@ -56,3 +56,19 @@ group :development do
     gem 'better_errors'
 end
 
+group :development do
+  gem 'rails_apps_testing'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem "factory_bot_rails", "~> 4.0"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+end
+

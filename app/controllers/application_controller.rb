@@ -11,11 +11,13 @@ class ApplicationController < ActionController::Base
   private
 
   def check_login
+    if (!Rails.env.test?)
       user = current_user
 
       if(user.nil?)
           render 'shared/_error_message', locals: {message: 'User not signed!'.html_safe, title:'Error'}
           return
       end
+    end
   end
 end
