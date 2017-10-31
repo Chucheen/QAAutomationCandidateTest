@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     root to: 'static_pages#home'
 
-    get 'signup', to: 'users#new'
+    get 'signup', to: 'customers#new'
 
     get 'cart', to: 'order_lines#index'
     post 'finalize_cart', to: 'order_lines#finalize_cart'

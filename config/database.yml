@@ -17,3 +17,10 @@ production:
   username: root
   password: devtest
   host: localhost
+
+test:
+  adapter: mysql2
+  database: co_ecommerce
+  username: root
+  password: devtest
+  host: localhost
